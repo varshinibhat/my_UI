@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+  background:#888;
+  color: #fff;
+  background-color: #8BC6EC;
+  background: #ADA996;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+div.gallery {
+  border: 1px solid #ccc;
+  width: 17rem;
+  height: 22rem;
+  cursor:pointer;
+  border-radius: 1rem;
+  overflow:hidden;
+  margin: 1.5rem;
+  box-shadow: 0 0 0.5rem #000;
+  background:#fff;
+  color:#000;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 24.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+*/
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.container {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  
+}
+
+.imagecard {
+  margin:0;
+  width:100%;
+  height:18.5rem;
+  background-size: fill;
+  padding: 1rem;
+  font-weight: 800;
+  color:#fff;
+  border: 1px solid #000;
+}
+.cardid {
+  background:rgba(0,0,0,0.2);
+  border-radius:50%;
+  padding:0.5rem;
+}
+.gallery {
+  box-shadow:inset 0 0 1rem #fff;
+}
+.popup {
+  position:fixed;
+  left:10%;
+  width: 80%;
+  height: 80%;
+  background:#fff;
+  border: 1px solid #000;
+  border-radius:0.7rem;
+  display:none;
+}
+#searchbar {
+ width: 40%; 
+ 
+ 
+}
+#searchbar:active
+</style>
+<script>
+  function changeimg(imgurl) {
+    let popup document.getElementById("popup");
+    popup.style = "background:url("+imgurl+");";
+  }
+</script>
+</head>
+<body>
+<form class="example" action="/characters" method="get" style="margin:auto;display:flex;justify-content:center;max-width:100%">
+  <input type="text" placeholder="Search.." name="q" id="searchbar">
+  <button type="submit" style="width:8rem"><i class="fa fa-search"></i></button>
+</form>
+
+  <div class="popup" id="popup">
+
+  </div>
+
+{% block content %}
+    
+    {% if results %}
+        <ul>
+          <div>
+          <div class="container">
+
+            {% for character in results %}
+           
+            
+            <div class="responsive">
+              <div class="gallery">
+                
+                <a target="_blank" href={{ character.image }} onclick="changeimg({{ character.image }})">
+                  <p style="background:url({{ character.image }})" class="imagecard" ><span class="cardid">{{ character.id }} </span></p>
+                  {% comment %} <img src={{ character.image }} alt="Mountains" width="600" height="400"> {% endcomment %}
+                </a>
+                <div class="desc" >
+                  <b>{{ character.name }}</b>
+                  
+                </div>
+              </div>
+            </div>
+            
+            <div class="clearfix"></div>
+            
+            {% comment %} <img src= {{ character.image }}/> {{ character.name }}{{ character.id }} {% endcomment %}
+            {% endfor %}
+
+          </div>
+        </div>
+        </ul>
+    {% else %}
+        <p>No results found for "{{ query }}".</p>
+    {% endif %}
+{% endblock %}
+
+
+</body>
+</html> 
+{% comment %} <form action="/characters" method="get">
+    <input type="text" name="q" placeholder="Search...">
+    <button type="submit">Search</button>
+  </form>
+  
+<h1>Search results for "{{ query }}"</h1>
+    {% if results %}
+        <ul>
+            {% for character in results %}
+                <li>{{ character.name }} ({{ character.status }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found for "{{ query }}".</p>
+    {% endif %}
+
+    {%load static%}
+    <img src="{% static 'rmc.jpg'%}" class="img-fluid" alt="No image"> {% endcomment %}
