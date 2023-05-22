@@ -11,7 +11,7 @@ def search_view(request):
     query = request.GET.get('q', '')
     #query="rick"
     #response = requests.get(f'https://rickandmortyapi.com/api/character/?name={query}')
-    response = requests.get(f'http://localhost:8080/api/v1/characters/?name={query}')
+    response = requests.get(f'http://localhost:8050/api/v1/characters/?name={query}')
     print("==================")
     print(response)
     if response.status_code==200:
@@ -30,7 +30,6 @@ def search_view(request):
 
 
 
-#https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application
 
 
 
@@ -54,3 +53,5 @@ def search_view(request):
 #     #return render(request, 'my_template.html', context)
 
 
+#docker run -p 1500:5432 faizan10933/tvshowdb:1.0
+#docker run -p 8080:8080 faizan10933/rmc:1.0 

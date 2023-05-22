@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('rmc_app.urls')),
      path('shows',include('tsc_app.urls')),
-    
+     #path('show/<str:show_id>/characters/', views.show_characters, name='show_characters'),
 ]
