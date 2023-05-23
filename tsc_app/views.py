@@ -13,6 +13,13 @@ def shows(request):
     context = {'results': data}
     return render(request, 'shows.html', context)
    
+def show_characters(request, show_id):
+    response = requests.get("http://localhost:8080/api/v1/shows/{}/characters".format(show_id))
+    characters_data = response.json()
 
+    context = {
+        'characters': characters_data
+    }
+    return render(request, 'show_characters.html', context)
 
 

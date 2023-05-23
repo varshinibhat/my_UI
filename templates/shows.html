@@ -1,6 +1,14 @@
-<ul>
-    {% for character in results %}
-        
-        <li>{{character}}{{ character.title }} </li>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TV Shows</title>
+</head>
+<body>
+  <h1>All TV Shows</h1>
+  <div id="shows-container">
+    {% for show in results %}
+      <a href="/shows/{{ show.id }}/characters">{{ show.title }}</a><br>
     {% endfor %}
-</ul>
+  </div>
+</body>
+</html>
