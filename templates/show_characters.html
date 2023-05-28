@@ -2,13 +2,41 @@
 <html>
 <head>
   <title>Show Characters</title>
+  <style>
+    body {
+      font-family: Arial;
+      background:#888;
+      color: #fff;
+      background-color: #8BC6EC;
+      background: #ADA996;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      
+    }
+
+
+    .center {
+      text-align:center;
+      color: rgba(0,0,0,0.6);
+    }
+
+    .header {
+      text-align:center;
+      color: rgba(0,0,0,0.8);
+    }
+
+
+  </style>
 </head>
 <body>
-  <h1>Show Characters</h1>
+  <h1 class="header">The Characters</h1>
   <div id="characters-container">
     {% for character in characters %}
-      {{ character.name }}<br>
+      <li class="center">{{ character.name }}</li><br>
     {% endfor %}
   </div>
+
+  
+
 </body>
 </html>

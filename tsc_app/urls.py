@@ -8,4 +8,6 @@ urlpatterns = [
     #path('<int:show_id>/characters/', views.show_characters, name='show_characters'),
     path('/<int:show_id>/characters/', views.show_characters, name='show_characters'),
       #path('characters',views.search_view,name="characters"),
+      #path('/insert_shows',views.insert_shows,name='insert_shows'),
+      #path('/insert_characters',views.insert_characters,name='insert_characters'),
 ]

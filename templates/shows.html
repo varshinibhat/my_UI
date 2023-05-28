@@ -1,14 +1,296 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
+
+    <title>TV Shows</title>
+    <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+
+<style>
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.b-example-divider {
+  width: 100%;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.btn-bd-primary {
+  --bd-violet-bg: #712cf9;
+  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  --bs-btn-border-color: var(--bd-violet-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #6528e0;
+  --bs-btn-hover-border-color: #6528e0;
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #5a23c8;
+  --bs-btn-active-border-color: #5a23c8;
+}
+.bd-mode-toggle {
+  z-index: 1500;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px  #000; 
+  height:80%;
+  color: rgba(0,0,0,0.6);
+
+}
+body {
+  font-family: Arial;
+  background:#888;
+  color: #fff;
+  background-color: #8BC6EC;
+  background: #ADA996;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.center {
+ 
+  color: rgba(0,0,0,0.6);
+}
+
+
+.button {
+    
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  font-weight:600 ;
+  background: rgba(0,0,0,0.43);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+
+}
+
+.button:hover {
+  background-color: #555;
+}
+.imagecard {
+  margin:0;
+  width:100%;
+  height:18.5rem;
+  background-size: fill;
+  padding: 1rem;
+  font-weight: 800;
+  color:#fff;
+  border: 1px solid #000;
+}
+
+h1 {
+  text-align: center;
+  color:rgba(0,0,0,0.8);
+}
+
+</style>
+</head>
+<body>
+  <main>
+
+    
+      
+        
+          <h1> TV SHOWS </h1>
+          <p>
+            <a href="/shows/insert_shows" class="btn btn-primary my-2">ADD SHOW</a>
+           
+          </p>
+       
+   
+
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+        <div class="card">
+        {% for show in results %}
+        {%load static%}
+        
+        <div class="responsive">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card shadow-sm">
+             
+              <svg class="bd-placeholder-img card-img-top" width="35%" height="25" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                
+                <title>Placeholder</title><text x="50%" y="50%" fill="000" dy=".15em"><strong>{{show.id}} .{{show.title}}</strong></text>
+                <img src="{% static 'show_1.jpg'%}" width="95%">
+              
+              
+              </svg>
+              
+              <div class="card-body">
+              
+                <p class="card-text"><i>{{show.synopsis}}</i> - {{show.releaseYear}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <form action="/shows/{{ show.id }}/characters">
+                      <p><button type="submit" class="button">View Characters</button></p>
+                      </form>
+                      <form action="/shows/insert_characters">
+                        <p><button type="submit">Add Character</button></p>
+                        </form>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      {% endfor %}
+      </div>
+    </div>
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
   <title>TV Shows</title>
 </head>
 <body>
   <h1>All TV Shows</h1>
   <div id="shows-container">
     {% for show in results %}
-      <a href="/shows/{{ show.id }}/characters">{{ show.title }}</a><br>
+     <li> {{show.title}} : <a href="/shows/{{ show.id }}/characters">Check for Characters</a></li><br>
     {% endfor %}
   </div>
+ <h4>You Can Add More Shows Now!!<h4>
+ <form action="/shows/insert_shows">
+      <p><button type="submit" class="button">Add a Show</button></p>
+      </form>
+  
+
 </body>
-</html>
+</html> {% endcomment %}
