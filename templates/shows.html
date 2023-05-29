@@ -195,6 +195,50 @@ h1 {
   color:rgba(0,0,0,0.8);
 }
 
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.2s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+
+
 </style>
 </head>
 <body>
@@ -204,10 +248,33 @@ h1 {
       
         
           <h1> TV SHOWS </h1>
-          <p>
-            <a href="/shows/insert_shows" class="btn btn-primary my-2">ADD SHOW</a>
+          
+            {% comment %} <a href="/shows/insert_shows" class="btn btn-primary my-2">ADD SHOW</a>
+            <a href="/shows/insert_characters" class="btn btn-primary my-2">ADD character</a> {% endcomment %}
            
-          </p>
+          
+         <div>
+          <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+              <a href="/shows/insert_shows">NEW SHOW</a>
+              <a href="/shows/insert_characters">NEW CHARACTERS</a>
+              
+            </div>
+          </div>
+          
+          
+          <h4><span style="font-size:25px;cursor:pointer;color:rgba(0,0,0, 0.9)" onclick="openNav()">&#9776; Insert</span></h4>
+          <script>
+          function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+          }
+          
+          function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+          }
+          </script>
+        </div>
        
    
 
@@ -225,7 +292,7 @@ h1 {
               <svg class="bd-placeholder-img card-img-top" width="35%" height="25" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 
                 <title>Placeholder</title><text x="50%" y="50%" fill="000" dy=".15em"><strong>{{show.id}} .{{show.title}}</strong></text>
-                <img src="{% static 'show_1.jpg'%}" width="95%">
+                <img src="{% static 'show.jpg'%}" width="95%">
               
               
               </svg>
@@ -238,9 +305,8 @@ h1 {
                     <form action="/shows/{{ show.id }}/characters">
                       <p><button type="submit" class="button">View Characters</button></p>
                       </form>
-                      <form action="/shows/insert_characters">
-                        <p><button type="submit">Add Character</button></p>
-                        </form>
+                     
+                        
                   </div>
 
                 </div>
@@ -249,6 +315,7 @@ h1 {
           </div>
         </div>
       </div>
+      
       </div>
       {% endfor %}
       </div>

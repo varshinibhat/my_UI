@@ -11,7 +11,7 @@ def search_view(request):
     query = request.GET.get('q', '')
     #query="rick"
     #response = requests.get(f'https://rickandmortyapi.com/api/character/?name={query}')
-    response = requests.get(f'http://localhost:8020/api/v1/characters/?name={query}')
+    response = requests.get(f'http://localhost/rmc/characters/?name={query}')
     print("==================")
     print(response)
     if response.status_code==200:
@@ -53,5 +53,8 @@ def search_view(request):
 #     #return render(request, 'my_template.html', context)
 
 
-#docker run -p 1500:5432 faizan10933/tvshowdb:1.0
-#docker run -p 8080:8080 faizan10933/rmc:1.0 
+
+#docker run -d --name nginx-base1 --network host varshini
+# docker run --network host  faizan10933/rmc:1.0
+#sudo docker run --network host faizan10933/tscdb:1.0
+#sudo docker run --network host faizan10933/tscfinal:1.0

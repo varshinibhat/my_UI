@@ -1,6 +1,7 @@
-<form action="http://localhost:8080/api/v1/shows"
+<form action=""
   enctype="multipart/form-data"
   method="post">
+  {% csrf_token %}
 <P>
   Show id <INPUT type="number" id="id"name="id"><BR>
 Show title <INPUT type="text" id="title"name="title"><BR>
