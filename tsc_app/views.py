@@ -15,7 +15,12 @@ def shows(request):
    
 def show_characters(request, show_id):
     response = requests.get("http://localhost/tsc/shows/{}/characters".format(show_id))
-    characters_data = response.json()
+
+    print(response.status_code)
+    if response.status_code==200:
+        characters_data = response.json()
+    else:
+        return HttpResponse("No characters found")
 
     context = {
         'characters': characters_data
@@ -68,7 +73,7 @@ def insert_characters(request,show_id):
 
         }
 
-        print("=================8888888888888888888")
+        
         # print(title)
 
         api_url = 'http://localhost/tsc/shows/{}/characters".format(show_id)'  # Replace with your API endpoint URL
@@ -79,7 +84,7 @@ def insert_characters(request,show_id):
             return HttpResponse('Data updated successfully')
         else:
         # Failed to update data
-            print("222222222222222222222222222222222")
+            
             print(response.status_code)
             return HttpResponse('Failed to update data')
 

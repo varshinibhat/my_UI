@@ -1,11 +1,190 @@
+{% comment %} <html>
+  <head>
+    <style>
+      body {
+        background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        
+
+      }
+      .formtitle {
+        width:100%;
+        text-align:center;
+        margin-bottom: 3.5rem;
+      }
+       .sidedesign {
+        width: 70%;
+        height:70%;
+        transform: rotateZ(-30deg);
+        left: -10rem;
+        top: 10rem;
+        position:absolute;
+        background: rgba(255,255,255,0.6);
+      } 
+      .addForminner {
+          padding: 10%;
+          padding-top:5%;
+          border: 0.1rem groove #000;
+          border-radius: 1.5rem;
+          box-shadow: 0 0 1rem #000;
+          overflow:hidden;
+      }
+      .insert {
+        display: flex;
+        justify-content:center;
+        margin: 1rem 0;
+      }
+      .label {
+        width:16rem;
+        
+        font-weight:700;
+      }
+      .label::after {
+        content:":";
+      }
+      .inputbox {
+        padding: 0.1rem;
+        background: 
+      }
+      .btncontainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+      }
+      .btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.7rem;
+        margin-top: 1.5rem;
+        border: 0.1rem solid #fff; 
+        cursor: pointer;
+        background: rgba(0,0,0,0.65);
+        color:#fff;
+        font-weight: 550;
+      }
+      .btn:hover {
+        box-shadow: 0 0 0.4rem #000;
+         
+      }
+    </style>
+  </head>
+<body>
+  
+<div class="addForm">
+  <div class="addforminner">
+    
+    <h2 class="formtitle">Insert Characters</h2>
 <form action=""
   enctype="multipart/form-data"
   method="post">
   {% csrf_token %}
-<P>
-  Character id <INPUT type="number" name="id"><BR>
-Character name <INPUT type="text" name="name"><BR>
-  Description <INPUT type="text" name="description"><BR>
-    tvShowId <INPUT type="number" name="tvShowId"><BR>
+
+<div class="insert"><div class="label">Character id </div><INPUT type="number" placeholder="Id" id="id"name="id" class="inputbox"></div>
+  <div class="insert"><div class="label">Character name </div><INPUT type="text" placeholder="Name" id="title"name="title" class="inputbox"></div>
+    <div class="insert"><div class="label">Description</div> <INPUT type="text" placeholder="Description" id="synopsis"name="synopsis" class="inputbox"></div>
+        <div class="insert"><div class="label">tvShowId </div><INPUT type="number" placeholder="TvShowId" id="releaseYear"name="releaseYear" class="inputbox"></div>
+<div><div class="btncontainer">          <INPUT type="submit" value="Add" class="btn"> </div></div>
+</form>
+</div>
+</div>
+
+</body>
+</html> {% endcomment %}
+
+
+<html>
+  <head>
+    <style>
+      body {
+        background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        
+
+      }
+      .formtitle {
+        width:100%;
+        text-align:center;
+        margin-bottom: 3.5rem;
+      }
+       .sidedesign {
+        width: 70%;
+        height:70%;
+        transform: rotateZ(-30deg);
+        left: -10rem;
+        top: 10rem;
+        position:absolute;
+        background: rgba(255,255,255,0.6);
+      } 
+      .addForminner {
+          padding: 10%;
+          padding-top:5%;
+          border: 0.1rem groove #000;
+          border-radius: 1.5rem;
+          box-shadow: 0 0 1rem #000;
+          overflow:hidden;
+      }
+      .insert {
+        display: flex;
+        justify-content:center;
+        margin: 1rem 0;
+      }
+      .label {
+        width:16rem;
+        
+        font-weight:700;
+      }
+      .label::after {
+        content:":";
+      }
+      .inputbox {
+        padding: 0.1rem;
+        background: 
+      }
+      .btncontainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+      }
+      .btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.7rem;
+        margin-top: 1.5rem;
+        border: 0.1rem solid #fff; 
+        cursor: pointer;
+        background: rgba(0,0,0,0.65);
+        color:#fff;
+        font-weight: 550;
+      }
+      .btn:hover {
+        box-shadow: 0 0 0.4rem #000;
+         
+      }
+    </style>
+  </head>
+<body>
+  <div class="addForm">
+    <div class="addforminner">
+      
+      <h2 class="formtitle">Insert Characters</h2>
+
+
+
+ <form action=""
+  enctype="multipart/form-data"
+  method="post">
+  {% csrf_token %}
+
+  
+  <label> Character id </label><INPUT type="number" name="id"><BR>
+    <label>Character name</label> <INPUT type="text" name="name"><BR>
+      <label>Description</label> <INPUT type="text" name="description"><BR>
+        <label> tvShowId</label> <INPUT type="number" name="tvShowId"><BR>
 <INPUT type="submit" value="Add"> 
-</FORM>
+</FORM> 

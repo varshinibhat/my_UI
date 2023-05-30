@@ -1,11 +1,95 @@
+<html>
+  <head>
+    <style>
+      body {
+        background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        
+
+      }
+      .formtitle {
+        width:100%;
+        text-align:center;
+        margin-bottom: 3.5rem;
+      }
+      {% comment %} .sidedesign {
+        width: 70%;
+        height:70%;
+        transform: rotateZ(-30deg);
+        left: -10rem;
+        top: 10rem;
+        position:absolute;
+        background: rgba(255,255,255,0.6);
+      } {% endcomment %}
+      .addForminner {
+          padding: 10%;
+          padding-top:5%;
+          border: 0.1rem groove #000;
+          border-radius: 1.5rem;
+          box-shadow: 0 0 1rem #000;
+          overflow:hidden;
+      }
+      .insert {
+        display: flex;
+        justify-content:center;
+        margin: 1rem 0;
+      }
+      .label {
+        width:16rem;
+        
+        font-weight:700;
+      }
+      .label::after {
+        content:":";
+      }
+      .inputbox {
+        padding: 0.1rem;
+        background: 
+      }
+      .btncontainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+      }
+      .btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.7rem;
+        margin-top: 1.5rem;
+        border: 0.1rem solid #fff; 
+        cursor: pointer;
+        background: rgba(0,0,0,0.65);
+        color:#fff;
+        font-weight: 550;
+      }
+      .btn:hover {
+        box-shadow: 0 0 0.4rem #000;
+         
+      }
+    </style>
+  </head>
+<body>
+  
+<div class="addForm">
+  <div class="addforminner">
+    {% comment %} <div class="sidedesign"></div> {% endcomment %}
+    <h2 class="formtitle">Insert Shows</h2>
 <form action=""
   enctype="multipart/form-data"
   method="post">
   {% csrf_token %}
-<P>
-  Show id <INPUT type="number" id="id"name="id"><BR>
-Show title <INPUT type="text" id="title"name="title"><BR>
-  Show synopsis <INPUT type="text" id="synopsis"name="synopsis"><BR>
-  Show release year <INPUT type="number" id="releaseYear"name="releaseYear"><BR>
-<INPUT type="submit" value="Add"> 
+
+<div class="insert"><div class="label">Show id </div><INPUT type="number" placeholder="Id" id="id"name="id" class="inputbox"></div>
+  <div class="insert"><div class="label">Show title </div><INPUT type="text" placeholder="Title" id="title"name="title" class="inputbox"></div>
+    <div class="insert"><div class="label">Show synopsis</div> <INPUT type="text" placeholder="Synposis" id="synopsis"name="synopsis" class="inputbox"></div>
+        <div class="insert"><div class="label">Show release year </div><INPUT type="number" placeholder="Release Year" id="releaseYear"name="releaseYear" class="inputbox"></div>
+<div><div class="btncontainer">          <INPUT type="submit" value="Add" class="btn"> </div></div>
 </form>
+</div>
+</div>
+
+</body>
+</html>
